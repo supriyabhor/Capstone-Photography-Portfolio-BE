@@ -7,7 +7,7 @@ const router = express.Router();
 // Create
 router.post('/', async (req, res) =>{
     try {
-          console.log("Received data:", req.body);
+          console.log("New Data created:", req.body);
                      //- solution 1
           let newBooking = await booking.create(req.body); 
           
@@ -46,10 +46,7 @@ router.put('/:id', async (req, res) =>{
         new : true, runValidators: true
       }
     );
-        // If no booking was found, return a 404
-        if (!updateBooking) {
-          return res.status(404).send("Booking not found");
-      }
+      
        res.json(updateBooking);
     
   } catch (err) {
@@ -59,6 +56,19 @@ router.put('/:id', async (req, res) =>{
 })
 
 // Delete
+router.delete('/:id', async (req, res) =>{
+  try {
+    console.log("Data Deleted successfully.");
+     await booking.findByIdAndDelete(req.params.id);
+      
+     res.json({ msg: 'booking Deleted Successfully' });
+    
+  } catch (err) {
+   console.error(err);
+   res.status(500).json({msg: 'Server Error'});
+  }
+})
+
 
 
 
