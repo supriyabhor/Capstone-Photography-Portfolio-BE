@@ -17,8 +17,6 @@ router.post('/', async (req, res) =>{
         
 
            res.json(newBooking);
- 
-
 
     } catch (err) {
         console.error(err);
@@ -27,6 +25,18 @@ router.post('/', async (req, res) =>{
 })
 
 //Read
+router.get('/', async (req, res) =>{
+  try {
+    console.log("Retrived data successfully.");
+       let allBooking = await booking.find();
+       res.json(allBooking);
+   
+  } catch (err) {
+   console.error(err);
+   res.status(500).json({msg: 'Server Error'});
+  }
+})
+
 
 
 export default router;
