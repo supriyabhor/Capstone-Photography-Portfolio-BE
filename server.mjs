@@ -24,7 +24,7 @@ app.use(express.json());
 
 //Routes
 app.use('/booking', bookingRoutes);
-app.use('/photographer', photographerRoutes)
+app.use('/photographer', photographerRoutes);
 
 //Listener
 app.listen(PORT, ()=>{

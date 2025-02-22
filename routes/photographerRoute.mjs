@@ -52,6 +52,19 @@ router.put('/:id', async (req, res) => {
     }
 })
 
+// Delete
+router.delete('/:id', async (req, res) => {
+    try {
+        console.log("Data Deleted Successfully..");
+        await Photgrapher.findByIdAndDelete(req.params.id);
+
+        res.json({ msg: 'Photographer Deleted Successfully'});
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({msg: 'Server Error'});
+    }
+})
 
 
 
