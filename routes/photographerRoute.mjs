@@ -19,4 +19,17 @@ router.post('/', async (req, res) => {
     }
 })
 
+// Read
+router.get('/', async (req,res) =>{
+   
+    try {
+        console.log("Retrived all Data..");
+         let allPhotographer = await Photgrapher.find();
+         res.json(allPhotographer); 
+        
+    } catch (err) {
+        con
+    }
+})
+
 export default router;
