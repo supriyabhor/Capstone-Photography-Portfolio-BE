@@ -3,6 +3,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './config/db.mjs';
 import bookingRoutes from './routes/bookingRoute.mjs';
+import photographerRoutes from './routes/photographerRoute.mjs';
 
 //setup
 const app= express();
@@ -23,6 +24,7 @@ app.use(express.json());
 
 //Routes
 app.use('/booking', bookingRoutes);
+app.use('/photographer', photographerRoutes)
 
 //Listener
 app.listen(PORT, ()=>{
