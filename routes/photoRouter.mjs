@@ -53,5 +53,23 @@ router.post('/', upload.single("photoGallery"), async (req, res) => {
    }
 });
 
+// Get
+router.get('/', async (req, res) => {
+    try {
+      console.log("Retrieving photos from the database...");
+      // Fetch all photos from MongoDB
+      let allPhotos = await Photo.find();  // Photo is the model where the photos are stored
+      
+      if (allPhotos.length === 0) {
+        return res.status(404).json({ msg: 'No photos found' });
+      }
+      
+      res.json(allPhotos);
+    } catch (err) {
+      console.error("Error retrieving photos:", err);
+      res.status(500).json({ msg: 'Server Error' });
+    }
+  });
+
 
 export default router;
