@@ -42,9 +42,9 @@ router.put('/:id', async (req, res) =>{
   try {
     console.log("Data updated successfully.");
     let updateBooking = await booking.findByIdAndUpdate(
-      req.params.id, req.body, {
-        new : true, runValidators: true
-      }
+      req.params.id, 
+      req.body,
+       { new : true, runValidators: true }
     );
       
        res.json(updateBooking);
