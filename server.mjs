@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import connectDB from './config/db.mjs';
 import bookingRoutes from './routes/bookingRoute.mjs';
 import photographerRoutes from './routes/photographerRoute.mjs';
+import photoRoute from './routes/photoRouter.mjs';
 
 //setup
 const app= express();
@@ -25,6 +26,7 @@ app.use(express.json());
 //Routes
 app.use('/booking', bookingRoutes);
 app.use('/photographer', photographerRoutes);
+app.use('/photo', photoRoute);
 
 //Listener
 app.listen(PORT, ()=>{
