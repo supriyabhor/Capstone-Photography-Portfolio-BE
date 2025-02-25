@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const photoSchema = new mongoose.Schema({
-    photoURI: {
+    photoURL: {
         type: String,
         required: true
     }

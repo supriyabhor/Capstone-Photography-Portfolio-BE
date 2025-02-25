@@ -26,10 +26,11 @@ const BookingSchema = new mongoose.Schema({
     },
 
    //dropdown list
-    photographerSelection: {
-        type: Array,
-        required: true
-      }
+    // photographerSelection:
+    // [ {
+    //     type: mongoose.Schema.Types.ObjectId, ref : 'Photographer'
+    //   },
+    // ]
 });
 
 const Booking = mongoose.model('Booking', BookingSchema);
