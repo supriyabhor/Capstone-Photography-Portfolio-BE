@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const photoSchema = new mongoose.Schema({
+    publicId: {
+        type: String,
+        required:true,
+    },
     photoURL: {
         type: String,
         required: true

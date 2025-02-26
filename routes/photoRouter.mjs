@@ -3,7 +3,8 @@ import multer from 'multer';
 import cloudinary from '../cloudinary.mjs';
 import Photo from '../model/photo.mjs';
 
-const router = express.Router();
+
+ const router = express.Router();
 
 // Multer setup for file upload
 const storage = multer.diskStorage({
@@ -52,6 +53,10 @@ router.post('/', upload.single("photoGallery"), async (req, res) => {
     res.status(500).json({ msg: 'Server Error' });
   }
 });
+
+
+
+
 // Get
 router.get('/', async (req, res) => {
     try {
